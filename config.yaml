@@ -1,0 +1,8 @@
+serve:
+  ip: "127.0.0.1" # 默认的ip地址
+  host: ":8888" # 端口号
+  static: ["/images"] #静态文件目录
+
+log:
+  mode: "development" # development | production
+  fileEnable: true # 是否启用输出到文件 false  true
