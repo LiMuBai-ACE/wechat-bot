@@ -6,3 +6,7 @@ serve:
 log:
   mode: "development" # development | production
   fileEnable: true # 是否启用输出到文件 false  true
+
+amap:
+  key: "e03eca649d19b53cacafa10163394d16"
+  weatherApi: "https://restapi.amap.com/v3/weather/weatherInfo"
