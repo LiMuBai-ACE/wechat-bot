@@ -17,7 +17,7 @@ func HandleMessage(bot *openwechat.Bot) {
 	plugins.ChangePluginStatus(true)
 
 	// 注册插件
-	dispatcher.RegisterHandler(plugins.WeChatPluginInstance.CheckIsOpen, plugins.WeChatPluginInstance.LuMessage, plugins.WeChatPluginInstance.Weather)
+	dispatcher.RegisterHandler(plugins.WeChatPluginInstance.CheckIsOpen, plugins.WeChatPluginInstance.Weather)
 
 	// 注册文本消息处理函数
 	dispatcher.OnText(textMessageHandle)

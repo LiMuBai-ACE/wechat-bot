@@ -164,7 +164,7 @@ func getLiveWeatherInfo(live Live) string {
 	info += "当前风向：" + live.WindDirection + "\n"
 	info += "当前风力：" + live.WindPower + "\n"
 	info += "当前湿度：" + live.Humidity + "%\n"
-	info += "报告时间：" + live.ReportTime
+	info += "报告时间：" + live.ReportTime + "%\n"
 	return info
 }
 func getForecastWeatherInfo(forecast Forecast) string {
@@ -188,7 +188,7 @@ func getForecastWeatherInfo(forecast Forecast) string {
 	info += "白天风向：" + forecast.DayWind + "\n"
 	info += "晚上风向：" + forecast.NightWind + "\n"
 	info += "白天风力：" + forecast.DayPower + "\n"
-	info += "晚上风力：" + forecast.NightPower
+	info += "晚上风力：" + forecast.NightPower + "\n"
 	return info
 }
 
@@ -201,17 +201,17 @@ func processData(forecastsWeather, livesWeather Weather) (string, error) {
 		liveText += getLiveWeatherInfo(live)
 	}
 
-	// var forecastText = ""
-	// for _, cityForecast := range forecastsWeather.Forecasts {
-	// 	forecastText += cityForecast.City + "今天及未来三天的天气预报如下:"
-	// 	for _, forecast := range cityForecast.Casts {
-	// 		forecastText += "\n" + getForecastWeatherInfo(forecast)
-	// 	}
-	// }
+	var forecastText = ""
+	for _, cityForecast := range forecastsWeather.Forecasts {
+		forecastText += cityForecast.City + "今天及未来三天的天气预报如下:"
+		for _, forecast := range cityForecast.Casts {
+			forecastText += "\n" + getForecastWeatherInfo(forecast)
+		}
+	}
 
-	// if liveText != "" && forecastText != "" {
-	// 	return liveText + "\n" + forecastText, nil
-	// }
+	if liveText != "" && forecastText != "" {
+		return liveText + "\n" + forecastText, nil
+	}
 	if liveText != "" {
 		return liveText, nil
 	}
